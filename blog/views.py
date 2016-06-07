@@ -22,7 +22,7 @@ def post_list(request):
     return render(request,
                   'blog/post/list.html',
                   {'page': page,
-                  'posts': posts})
+                   'posts': posts})
 
 
 def post_detail(request, year, month, day, post):
