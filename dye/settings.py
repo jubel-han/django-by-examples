@@ -81,3 +81,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# SMTP server for sending email.
+# https://docs.djangoproject.com/es/1.9/topics/email/#smtp-backend
+
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'admin@dye.com'
+EMAIL_HOST_PASSWORD = 'xxx'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = False
