@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'blog',
+    'account',
     'taggit',
     'haystack',
 )
