@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'blog',
     'taggit',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,3 +94,13 @@ EMAIL_HOST_USER = 'admin@dye.com'
 EMAIL_HOST_PASSWORD = 'xxx'
 EMAIL_PORT = 25
 EMAIL_USE_TLS = False
+
+# Haystack search engine connections
+# http://django-haystack.readthedocs.io/en/v2.4.1/settings.html#haystack-connections
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr/blog'
+    },
+}

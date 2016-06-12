@@ -3,3 +3,5 @@ db.sqlite3
 *.pyc
 *~
 .DS_Store
+configs/solr/blog/data
+
