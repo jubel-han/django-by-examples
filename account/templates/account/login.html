@@ -7,7 +7,7 @@
     <p>Please, use the following form to log-in:</p>
     <form action="." method="post">
         {{ form.as_p }}
-        {{ csrf_token }}
-        <p><input type="commit" value="Log-in"></p>
+        {% csrf_token %}
+        <p><input type="submit" value="Log-in"></p>
     </form>
 {% endblock %}
