@@ -96,6 +96,7 @@ EMAIL_HOST_USER = 'admin@dye.com'
 EMAIL_HOST_PASSWORD = 'xxx'
 EMAIL_PORT = 25
 EMAIL_USE_TLS = False
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Haystack search engine connections
 # http://django-haystack.readthedocs.io/en/v2.4.1/settings.html#haystack-connections

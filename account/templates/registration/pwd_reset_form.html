@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}reset your password{% endblock %}
+{% block content %}
+    <h1>Forgotten you password ?</h1>
+    <p>Enter your email address to obtain you new password.</p>
+    <form action="." method="post">
+        {{ form.as_p }}
+        <p><input type="submit" value="Send e-mail"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}
