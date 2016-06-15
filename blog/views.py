@@ -113,6 +113,8 @@ def post_share(request, post_id):
 
 def post_search(request):
     form = SearchForm()
+    # TODO: the origin code doesn't define the global variable \
+    # before render it as parameter to template.
     cd = results = total_results = None
     if 'query' in request.GET:
         form = SearchForm(request.GET)

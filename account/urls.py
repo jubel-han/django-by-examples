@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # login urls with our custom views
     # url(r'login/$', view=user_login, name='login'),
+    # TODO: the urls patterns followed up books doesn't work, changed it a little bit.
 
     # login urls with django contrib auth views
     url('^$', view=views.dashboard, name='dashboard'),
@@ -26,4 +27,6 @@ urlpatterns = [
         {'template_name': 'registration/pwd_reset_confirm.html'}, name='password_reset_confirm'),
     url(r'^password-reset/complete/$', auth_views.password_reset_complete,
         {'template_name': 'registration/pwd_reset_complete.html'}, name='password_reset_complete'),
+    # user register url
+    url(r'register/$', views.register, name='register'),
 ]
