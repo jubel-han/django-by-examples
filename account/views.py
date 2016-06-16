@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegisterForm, UserEditForm, ProfileEditForm
@@ -60,11 +61,13 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Profile updated successfully!')
         # process and save form cleaned data to database
 
     else:
         profile_form = ProfileEditForm(instance=request.user)
         user_form = UserEditForm(instance=request.user)
+        messages.error(request, 'Profile updated failed!')
     return render(request, 'account/edit.html',
                   {'profile_form': profile_form,
                    'user_form': user_form})
