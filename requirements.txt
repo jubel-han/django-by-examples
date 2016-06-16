@@ -4,4 +4,6 @@ django-taggit==0.17.1
 Markdown==2.6.2
 django-haystack==2.4.0
 pysolr==3.3.2
+Pillow==2.9.0
+
 

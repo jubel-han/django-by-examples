@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+
 from . import views
 
 urlpatterns = [
@@ -28,5 +31,12 @@ urlpatterns = [
     url(r'^password-reset/complete/$', auth_views.password_reset_complete,
         {'template_name': 'registration/pwd_reset_complete.html'}, name='password_reset_complete'),
     # user register url
-    url(r'register/$', views.register, name='register'),
+    url(r'^register/$', views.register, name='register'),
+
+    # user edit url
+    url(r'^edit/$', views.edit, name='edit'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

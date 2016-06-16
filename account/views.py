@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegisterForm
+from .forms import LoginForm, UserRegisterForm, UserEditForm, ProfileEditForm
 
 
 def user_login(request):
@@ -47,3 +47,26 @@ def register(request):
         user_form = UserRegisterForm()
     return render(request, 'registration/register.html',
                   {'user_form': user_form})
+
+
+@login_required
+def edit(request):
+    if request.method == 'POST':
+        profile_form = ProfileEditForm(instance=request.user,
+                                       data=request.POST)
+        user_form = UserEditForm(instance=request.user,
+                                 data=request.POST,
+                                 files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+        # process and save form cleaned data to database
+
+    else:
+        profile_form = ProfileEditForm(instance=request.user)
+        user_form = UserEditForm(instance=request.user)
+    return render(request, 'account/edit.html',
+                  {'profile_form': profile_form,
+                   'user_form': user_form})
+
+
