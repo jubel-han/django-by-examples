@@ -20,4 +20,6 @@ urlpatterns = patterns('',
     url(r'^account/', include('account.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
+    url(r'social-auth/',
+        include('social.apps.django_app.urls', namespace='social')),
 )

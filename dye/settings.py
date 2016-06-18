@@ -25,7 +25,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dye.com']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'account',
     'taggit',
     'haystack',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,4 +121,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.FacebookOAuth2',
 }
+
+SOCIAL_AUTH_FACEBOOK_KEY = 'xxxxxx' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'xxxxxxx' # Facebook App Secret
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
