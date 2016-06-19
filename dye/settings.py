@@ -44,6 +44,7 @@ CORE_APPS = (
 DYE_APPS = (
     'blog',       # blog app
     'account',    # account app
+    'images',     # image app
 )
 
 HELPER_APPS = (
