@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['dye.com']
 
 # Application definition
 
-INSTALLED_APPS = (
+CORE_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,12 +39,20 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
-    'blog',
-    'account',
+)
+
+DYE_APPS = (
+    'blog',       # blog app
+    'account',    # account app
+)
+
+HELPER_APPS = (
     'taggit',
     'haystack',
     'social.apps.django_app.default',
 )
+
+INSTALLED_APPS = CORE_APPS + HELPER_APPS + DYE_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
