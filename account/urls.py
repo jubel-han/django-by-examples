@@ -36,5 +36,8 @@ urlpatterns = [
     # user list and detail url
     url(r'users/$', views.user_list, name='user_list'),
     url(r'users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
+
+    # user follow url
+    url(r'users/follow/$', views.user_follow, name='user_follow'),
 ]
 
