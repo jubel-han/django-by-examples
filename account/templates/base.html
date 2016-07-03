@@ -14,7 +14,7 @@
               <a href="{% url "dashboard" %}">My dashboard</a>
           </li>
           <li {% if section == "images" %}class="selected"{% endif %}>
-              <a href="#">Images</a>
+              <a href="{% url "images:list" %}">Images</a>
           </li>
           <li {% if section == "people" %}class="selected"{% endif %}>
               <a href="#">People</a>
@@ -50,7 +50,7 @@
 </div>
 
 <script src="/static/js/jquery.min.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/static/js/jquery.cookie.min.js"></script>
 <script>
   var csrftoken = $.cookie('csrftoken');
   function csrfSafeMethod(method){
