@@ -48,5 +48,13 @@
     {% block content %}
     {% endblock %}
 </div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      {% block domready %}
+      {% endblock %}
+  });
+</script>
 </body>
 </html>
