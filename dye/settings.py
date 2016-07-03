@@ -158,3 +158,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = 'xxxxxxx' # Facebook App Secret
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}

@@ -30,8 +30,11 @@ urlpatterns = [
         {'template_name': 'registration/pwd_reset_complete.html'}, name='password_reset_complete'),
     # user register url
     url(r'^register/$', views.register, name='register'),
-
     # user edit url
     url(r'^edit/$', views.edit, name='edit'),
+
+    # user list and detail url
+    url(r'users/$', views.user_list, name='user_list'),
+    url(r'users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
 ]
 
