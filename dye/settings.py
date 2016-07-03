@@ -51,6 +51,7 @@ HELPER_APPS = (
     'taggit',
     'haystack',
     'social.apps.django_app.default',
+    'sorl.thumbnail',
 )
 
 INSTALLED_APPS = CORE_APPS + HELPER_APPS + DYE_APPS
@@ -74,6 +75,7 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
