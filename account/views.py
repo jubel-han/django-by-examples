@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
 from actions.utils import create_action
+from actions.models import Action
 from .forms import LoginForm, UserRegisterForm, UserEditForm, ProfileEditForm
 from .models import Contact
 
@@ -33,8 +34,17 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
+    # Display all actions by default
+    actions = Action.objects.exclude(user=request.user)
+    follow_ids = request.user.following.values_list('id', flat=True)
+
+    if follow_ids:
+        actions = actions.filter(user_id__in=follow_ids)
+    actions = actions[:10]
+
     return render(request, 'account/dashboard.html',
-                  {'section': 'dashboard'})
+                  {'section': 'dashboard',
+                   'actions': actions})
 
 
 def register(request):
