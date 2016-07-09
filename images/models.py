@@ -13,6 +13,7 @@ class Image(models.Model):
     url = models.URLField()
     created = models.DateTimeField(auto_now_add=True, db_index=True)
     users_like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='images_liked')
+    total_likes = models.PositiveIntegerField(db_index=True, default=0)
 
     def __str__(self):
         return self.title
