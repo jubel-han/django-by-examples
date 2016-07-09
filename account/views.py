@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
+from actions.utils import create_action
 from .forms import LoginForm, UserRegisterForm, UserEditForm, ProfileEditForm
 from .models import Contact
 
@@ -46,6 +47,7 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             # Save user object
             new_user.save()
+            create_action(request.user, 'created new account')
             return render(request, 'registration/register_done.html',
                           {'new_user': new_user})
     else:
@@ -67,7 +69,8 @@ def edit(request):
             user_form.save()
             p = profile_form.cleaned_data['photo']
             profile_form.save()
-            messages.success(request, 'Profile updated successfully! %s' % p )
+            messages.success(request, 'Profile updated successfully! %s' % p)
+            create_action(request.user, 'updated profile', profile_form)
         else:
             messages.error(request, 'Profile updated failed!')
     else:
@@ -104,11 +107,11 @@ def user_follow(request):
         try:
             user = User.objects.get(id=user_id)
             if action == 'follow':
-                Contact.objects.get_or_create(
-                    user_from=request.user,
-                    user_to=user)
+                Contact.objects.get_or_create(user_from=request.user, user_to=user)
+                create_action(request.user, 'is following', user)
             else:
                 Contact.objects.filter(user_from=request.user, user_to=user).delete()
+                create_action(request.user, 'is not followed', user)
             return JsonResponse({'status': 'ok'})
         except User.DoesNotExist:
             return JsonResponse({'status': 'ko'})
