@@ -12,4 +12,11 @@
         <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">Bookmark it</a></p>
 
     <p>You can <a href="{% url "edit" %}">edit your profile</a>. or <a href="{% url "password_change" %}">change your password</a>.</p>
+    {# TODO:add infinite scroll functionality to the activity stream with AJAX paginator which same as image_list view #}
+    <h2>What's happening</h2>
+    <div class="action-list">
+      {% for action in actions %}
+        {% include "actions/action/detail.html" %}
+      {% endfor %}
+    </div>
 {% endblock %}
