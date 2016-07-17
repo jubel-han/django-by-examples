@@ -5,5 +5,5 @@ db.sqlite3
 .DS_Store
 configs/solr/blog/data
 media/*
+myshop/media/*
 !media/.gitkeep
-
