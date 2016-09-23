@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'orders',
     'paypal.standard.ipn',
     'payment',
+    'coupons',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,5 +121,5 @@ CART_SESSION_ID = 'cart'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # django-paypal settings
-PAYPAL_RECEIVER_EMAIL= 'example@126.com'
+PAYPAL_RECEIVER_EMAIL = 'example@126.com'
 PAYPAL_TEST = True
