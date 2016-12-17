@@ -1,0 +1,26 @@
+[
+{
+  "fields": {
+    "slug": "Music",
+    "title": "Music"
+  },
+  "model": "courses.subject",
+  "pk": 1
+},
+{
+  "fields": {
+    "slug": "meishu",
+    "title": "meishu"
+  },
+  "model": "courses.subject",
+  "pk": 2
+},
+{
+  "fields": {
+    "slug": "movie",
+    "title": "Movie"
+  },
+  "model": "courses.subject",
+  "pk": 3
+}
+]
