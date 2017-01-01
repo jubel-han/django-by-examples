@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'embed_video',
     'memcache_status',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -123,3 +124,10 @@ CACHES = {
 CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 120     # 2 minutes
 CACHE_MIDDLEWARE_KEY_PREFIX = 'educa'
+
+# rest framework api settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
