@@ -131,3 +131,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+
+# smtp settings for sending email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
