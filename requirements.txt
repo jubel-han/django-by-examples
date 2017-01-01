@@ -14,4 +14,6 @@ WeasyPrint==0.24
 django-rosetta==0.7.6
 django-braces==1.8.1
 django-embed-video==1.0.0
+python-memcached==1.58
+django-memcache-status==1.3.0
 
