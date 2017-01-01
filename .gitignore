@@ -5,6 +5,11 @@ db.sqlite3
 .DS_Store
 configs/solr/blog/data
 media/*
+educa/media/*
+educa/static/*
+educa/files/*
+educa/images/*
+static/*
 myshop/static/*
 myshop/media/*
 !media/.gitkeep
